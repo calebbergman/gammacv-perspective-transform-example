@@ -1,6 +1,6 @@
 {
-  "appId": "com.my.app",
-  "appName": "MyApp",
+  "appId": "com.calebbergman.gammacvperspectivetransformexample",
+  "appName": "gammacv-perspective-transform-example",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "dist"
