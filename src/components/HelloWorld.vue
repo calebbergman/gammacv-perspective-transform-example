@@ -21,10 +21,10 @@ export default {
   data: () => ({
     tensorTransform: null,
     vertices: {
-      tr: { x: 1846, y: 211 },
       tl: { x: 234, y: 213 },
-      bl: { x: 225, y: 2755 },
-      br: { x: 1835, y: 2761 }
+      tr: { x: 1846, y: 211 },
+      br: { x: 1835, y: 2761 },
+      bl: { x: 225, y: 2755 }
     }
   }),
 
