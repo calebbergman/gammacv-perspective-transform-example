@@ -3245,6 +3245,11 @@ function-bind@^1.0.2, function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
+gammacv@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/gammacv/-/gammacv-0.3.8.tgz#9b90deeecd11469b7e475831de6ff3622342a021"
+  integrity sha512-FLOIuOLGliO9Ns4aLM/Pvg63XVfTPMlI6Qy4O9LiQLnbg4y6iUzvK2X79BCGPMWCyCpTINLkmcsdsYtbiijYQQ==
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
