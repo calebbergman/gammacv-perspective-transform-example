@@ -4,9 +4,15 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "build:ios": "npm run build && npx cap copy"
   },
   "dependencies": {
+    "@capacitor/cli": "^1.1.0",
+    "@capacitor/core": "^1.1.0",
+    "@capacitor/ios": "^1.1.0",
+    "@ionic/core": "^4.5.0",
+    "@ionic/vue": "^0.0.4",
     "core-js": "^2.6.5",
     "gammacv": "^0.3.8",
     "vue": "^2.6.10"
