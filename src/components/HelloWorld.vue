@@ -90,6 +90,12 @@ export default {
         console.error('Unable to write file', e);
       }
     },
+    async fileDelete(path) {
+      await Filesystem.deleteFile({
+        path,
+        directory: FilesystemDirectory.Documents
+      });
+    },
     async mkdir(dir) {
       try {
         let ret = await Filesystem.mkdir({
