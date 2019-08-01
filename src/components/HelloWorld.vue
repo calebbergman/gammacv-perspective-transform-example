@@ -64,7 +64,11 @@ export default {
       sess.init(operation);
       sess.runOp(operation, 0, output);
 
-      this.fileWrite(output.data.slice(0, 100))
+      const dir = this.readdir("gammacv")
+      if (!dir)
+        this.mkdir("gammacv")
+
+      this.fileWrite("gammacv", output.data.slice(0, 100))
 
       // show output
       const canvas = document.createElement("canvas");
@@ -74,16 +78,37 @@ export default {
 
       return canvas;
     },
-    fileWrite(data) {
+    fileWrite(dir, data) {
       try {
         Filesystem.writeFile({
-          path: 'gammacv/output.txt',
+          path: `${dir}/output.txt`,
           data: data.toString(),
           directory: FilesystemDirectory.Documents,
           encoding: FilesystemEncoding.UTF8
         })
       } catch(e) {
         console.error('Unable to write file', e);
+      }
+    },
+    async mkdir(dir) {
+      try {
+        let ret = await Filesystem.mkdir({
+          path: dir,
+          directory: FilesystemDirectory.Documents,
+          createIntermediateDirectories: false // like mkdir -p
+        });
+      } catch(e) {
+        console.error('Unable to make directory', e);
+      }
+    },
+    async readdir(dir) {
+      try {
+        let ret = await Filesystem.readdir({
+          path: dir,
+          directory: FilesystemDirectory.Documents
+        });
+      } catch(e) {
+        console.error('Unable to read dir', e);
       }
     }
   },
