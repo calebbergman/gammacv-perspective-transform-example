@@ -38,7 +38,7 @@ export default {
       );
       this.$refs.result.appendChild(documentCanvas);
     },
-    transform(input, { tl, tr, br, bl }) {
+    async transform(input, { tl, tr, br, bl }) {
       // The Rect TL, TR, BR, BL
       const rect = new gm.Rect(tl.x, tl.y, tr.x, tr.y, br.x, br.y, bl.x, bl.y);
 
@@ -64,9 +64,9 @@ export default {
       sess.init(operation);
       sess.runOp(operation, 0, output);
 
-      const dir = this.readdir("gammacv")
+      const dir = await this.readdir("gammacv")
       if (!dir)
-        this.mkdir("gammacv")
+        await this.mkdir("gammacv")
 
       this.fileWrite("gammacv", output.data.slice(0, 100))
 
