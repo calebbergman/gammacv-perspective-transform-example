@@ -78,7 +78,7 @@ export default {
       try {
         Filesystem.writeFile({
           path: 'gammacv/output.txt',
-          data,
+          data: data.toString(),
           directory: FilesystemDirectory.Documents,
           encoding: FilesystemEncoding.UTF8
         })
