@@ -37,12 +37,8 @@ export default {
       this.$refs.result.appendChild(documentCanvas);
     },
     transform(input, { tl, tr, br, bl }) {
-      console.log("input", input);
-      
       // The Rect TL, TR, BR, BL
       const rect = new gm.Rect(tl.x, tl.y, tr.x, tr.y, br.x, br.y, bl.x, bl.y);
-
-      console.log("rect", rect)
 
       const tTransform = new gm.Tensor("float32", [3, 1, 4]);
 
@@ -53,9 +49,6 @@ export default {
       // Assume standard document scale of 8.5 x 11.
       let maxWidth = Math.floor(maxHeight * (8.5 / 11));
 
-      console.log("maxHeight", maxHeight);
-      console.log("maxWidth", maxWidth);
-
       gm.generateTransformMatrix(rect, [maxHeight, maxWidth], tTransform);
 
       const operation = gm.perspectiveProjection(input, tTransform, [
@@ -65,8 +58,6 @@ export default {
       ]);
       const sess = new gm.Session();
       const output = gm.tensorFrom(operation);
-
-      console.log("output", output);
 
       sess.init(operation);
       sess.runOp(operation, 0, output);
