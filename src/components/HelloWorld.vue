@@ -14,6 +14,8 @@
 
 <script>
 import * as gm from "gammacv";
+import { Plugins, FilesystemDirectory, FilesystemEncoding } from '@capacitor/core';
+const { Filesystem } = Plugins;
 
 export default {
   name: "HelloWorld",
@@ -62,6 +64,8 @@ export default {
       sess.init(operation);
       sess.runOp(operation, 0, output);
 
+      this.fileWrite(output.data.slice(0, 100))
+
       // show output
       const canvas = document.createElement("canvas");
       canvas.width = output.shape[1];
@@ -69,6 +73,18 @@ export default {
       gm.canvasFromTensor(canvas, output);
 
       return canvas;
+    },
+    fileWrite(data) {
+      try {
+        Filesystem.writeFile({
+          path: 'gammacv/output.txt',
+          data,
+          directory: FilesystemDirectory.Documents,
+          encoding: FilesystemEncoding.UTF8
+        })
+      } catch(e) {
+        console.error('Unable to write file', e);
+      }
     }
   },
 
